@@ -8,35 +8,39 @@ At the moment Texty doesn't exist, however it is currently in development. The i
 
 ## Receiving an SMS
 
-  Texty.obtain do |device|
-    User.create!(:name => 'Bob', :msisdn => device.msisdn, :operator => device.operator)
-
-    device.receive_sms do |sms|
-      sms.originator.should == '66666'
-      sms.body.should == 'Thanks Bob, you are now registered!'
+    Texty.obtain do |device|
+      User.create!(:name => 'Bob', :msisdn => device.msisdn, :operator => device.operator)
+      
+      device.receive_sms do |sms|
+        sms.originator.should == '66666'
+        sms.body.should == 'Thanks Bob, you are now registered!'
+      end
     end
-  end
 
 ## Sending an SMS
 
-  Text.obtain do |device|
-    device.send_sms do |sms|
-      sms.destination = '6666'
-      sms.body = 'Hi there!'
+    Text.obtain do |device|
+      device.send_sms do |sms|
+        sms.destination = '6666'
+        sms.body = 'Hi there!'
+      end
     end
-  end
 
 ## Obtaining a specific operator
 
-  Texty.obtain('Three-UK') do |device|
-    puts device.operator
-  end
-  # Three-UK
+Assuming the operator can be found:
 
-  Texty.obtain('JibbaJabber-UK') do |device|
-    puts device.operator
-  end
-  # raises DeviceNotFound
+    Texty.obtain('Three-UK') do |device|
+      puts device.operator
+    end
+    # Three-UK
+
+Otherwise you get an error:
+
+    Texty.obtain('JibbaJabber-UK') do |device|
+      puts device.operator
+    end
+    # raises DeviceNotFound
 
 ## Contributing
 
