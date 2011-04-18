@@ -21,4 +21,13 @@ describe Texty::Sms do
       sms.valid?.should be_false
     end
   end
+
+  describe "#to_json" do
+    it "should return json" do
+      sms = Texty::Sms.new
+      sms.destination = '07000000000'
+      sms.body = 'Hello!'
+      sms.to_json.should == '{"sms":{"destination":"07000000000","body":"Hello!"}}'
+    end
+  end
 end
