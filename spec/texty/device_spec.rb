@@ -26,7 +26,7 @@ describe Texty::Device do
         @sms.stub!(:valid?).and_return(true)
         Texty::Sms.stub!(:new).and_return(@sms)
 
-        @client = Texty::Device::Client.new
+        @client = Texty::Device::Client.new('127.0.0.1')
         @client.stub!(:send_sms).and_return(true)
         @device.stub!(:client).and_return(@client)
       end
@@ -54,7 +54,7 @@ describe Texty::Device do
         @sms.stub!(:valid?).and_return(false)
         Texty::Sms.stub!(:new).and_return(@sms)
 
-        @client = Texty::Device::Client.new
+        @client = Texty::Device::Client.new('127.0.0.1')
         @client.stub!(:send_sms).and_return(true)
         @device.stub!(:client).and_return(@client)
       end

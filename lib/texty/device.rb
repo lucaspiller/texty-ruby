@@ -1,6 +1,25 @@
+require 'rubygems'
+require 'httparty'
+
 module Texty
   class Device
     class Client
+      attr_reader :ip, :port
+
+      def initialize(ip, port = 4930)
+        @ip = ip
+        @port = port
+      end
+
+      def send_sms(sms)
+        HTTParty.post(url_for("/send_sms"), { :body => sms.to_json })
+      end
+
+      protected
+
+      def url_for(path)
+        "http://#{@ip}:#{@port}#{path}"
+      end
     end
 
     attr_reader :operator, :msisdn, :ip
@@ -23,7 +42,7 @@ module Texty
     end
 
     def client
-      @client ||= Client.new
+      @client ||= Client.new(@ip)
     end
   end
 end
