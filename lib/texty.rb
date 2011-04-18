@@ -1,6 +1,7 @@
 module Texty
   autoload :Device, 'texty/device'
   autoload :Exception, 'texty/exception'
+  autoload :Sms, 'texty/sms'
 
   class << self
     def obtain(operator = nil, &block)
