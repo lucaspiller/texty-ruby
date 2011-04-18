@@ -1,5 +1,8 @@
 module Texty
   class Device
+    class Client
+    end
+
     attr_reader :operator, :msisdn, :ip
 
     def initialize(operator, msisdn, ip)
