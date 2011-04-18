@@ -19,7 +19,7 @@ At the moment Texty doesn't exist, however it is currently in development. The i
 
 ## Sending an SMS
 
-    Text.obtain do |device|
+    Texty.obtain do |device|
       device.send_sms do |sms|
         sms.destination = '6666'
         sms.body = 'Hi there!'
