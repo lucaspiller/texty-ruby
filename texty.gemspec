@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "texty-ruby/version"
+require "texty/version"
 
 Gem::Specification.new do |s|
-  s.name        = "texty-ruby"
+  s.name        = "texty"
   s.version     = Texty::Ruby::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Luca Spiller"]
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{A Ruby interface to the Texty app}
   s.description = %q{A Ruby interface to the Texty app}
 
-  s.rubyforge_project = "texty-ruby"
+  s.rubyforge_project = "texty"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
