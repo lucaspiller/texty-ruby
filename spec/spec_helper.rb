@@ -19,6 +19,3 @@ module Rspec
     end
   end
 end
-
-Rspec.configure do |c|
-end
