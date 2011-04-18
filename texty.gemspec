@@ -4,7 +4,7 @@ require "texty/version"
 
 Gem::Specification.new do |s|
   s.name        = "texty"
-  s.version     = Texty::Ruby::VERSION
+  s.version     = Texty::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Luca Spiller"]
   s.email       = ["luca@stackednotion.com"]
@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency("rspec", "~> 2.5")
+  s.add_development_dependency("webmock", "~> 1.6")
 end

@@ -5,6 +5,7 @@ require 'texty'
 require 'rspec/core'
 require 'rspec/expectations'
 require 'rspec/mocks'
+require 'webmock/rspec'
 
 module Rspec
   module Core
